@@ -1,0 +1,14 @@
+form > * {
+    margin: 2px;
+}
+
+.contacts {
+    display: flex;
+}
+.contacts > * {
+    margin: 2px;
+}
+
+form > .textfield {
+    margin-bottom: 10px;
+}

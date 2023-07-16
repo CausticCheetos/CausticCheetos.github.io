@@ -1,0 +1,9 @@
+.skills>svg {
+    height: 50px;
+    margin: 5px;
+    transition: all 400ms;
+}
+.skills>svg:hover {
+    transform: translateY(2px);
+    transform: scale(1.4);
+}
