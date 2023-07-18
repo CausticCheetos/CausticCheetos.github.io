@@ -20,8 +20,12 @@ const Contact = () => {
         setOpen(true)
         emailjs.send("service_ucyr4ck", "template_e3h44ug", {from_name: fromName, from_email: fromEmail, message: message}, "J156d2_w5vXX2vKnS")
             .then(function(response) {
-                if (response.status === 200) 
+                if (response.status === 200) {
+                    setFromEmail('')
+                    setFromName('')
+                    setMessage('')
                     setTip('Sent!')
+                }
                 closeTip()
             }, function(error) {
                 setTip('Something went wrong!')
@@ -49,7 +53,8 @@ const Contact = () => {
             <TextField 
                 className='textfield' 
                 label="Name" 
-                variant="outlined" 
+                variant="outlined"
+                value={fromName}
                 onChange={(e) => {setFromName(e.target.value)}}
                 sx={{
                     input: {color: "#DADBDD"},
@@ -67,6 +72,7 @@ const Contact = () => {
                 variant="outlined" 
                 type='email'
                 required
+                value={fromEmail}
                 onChange={(e) => {setFromEmail(e.target.value)}}
                 sx={{
                     input: {color: "#DADBDD"},
@@ -84,6 +90,7 @@ const Contact = () => {
                 variant="outlined" 
                 required
                 multiline
+                value={message}
                 onChange={(e) => {setMessage(e.target.value)}}
                 sx={{
                     textarea: {color: "#DADBDD"},
